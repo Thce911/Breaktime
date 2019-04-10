@@ -31,6 +31,7 @@ class ViewController: UIViewController {
         score1 += 1
         onescrlbl.text = String(score1)
         isMatchpoint(scoreA: score1, scoreB: score2)
+        
     }
     
     @IBAction func substractonebtn(_ sender: Any) {
@@ -41,6 +42,7 @@ class ViewController: UIViewController {
         score2 += 1
         twoscrlbl.text = String(score2)
         isMatchpoint(scoreA: score1, scoreB: score2)
+        
     }
     @IBAction func substracttwobtn(_ sender: Any) {
         score2 -= 1
@@ -50,7 +52,6 @@ class ViewController: UIViewController {
     @IBAction func Reset(_ sender: Any) {
         score1 = 0
         score2 = 0
-        
         onescrlbl.text = String(score1)
         twoscrlbl.text = String(score2)
     }
@@ -59,14 +60,20 @@ class ViewController: UIViewController {
         if scoreA >= 9 && scoreB >= 9{
             if scoreA - scoreB != 0 {
                 let alert = UIAlertController(title: "Matchpoint!", message: "Tienes 4 saques", preferredStyle: UIAlertController.Style.alert)
-                
-                // add an action (button)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                
-                // show the alert
                 self.present(alert, animated: true, completion: nil)
             }
+            
+            if scoreA == scoreB{
+                let alert = UIAlertController(title: "Duce", message: "Que nervios", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+            }
         }
+        
     }
+    
+    
 }
 
