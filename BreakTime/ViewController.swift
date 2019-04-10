@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     @IBAction func addonebtn(_ sender: Any) {
         score1 += 1
         onescrlbl.text = String(score1)
-        isMatchpoint(scoreA: score1, scoreB: score2)
+        isMatchpoint()
         
     }
     
@@ -38,10 +38,11 @@ class ViewController: UIViewController {
         score1 -= 1
         onescrlbl.text = String(score1)
     }
+    
     @IBAction func addtwobtn(_ sender: Any) {
         score2 += 1
         twoscrlbl.text = String(score2)
-        isMatchpoint(scoreA: score1, scoreB: score2)
+        isMatchpoint()
         
     }
     @IBAction func substracttwobtn(_ sender: Any) {
@@ -56,22 +57,18 @@ class ViewController: UIViewController {
         twoscrlbl.text = String(score2)
     }
     
-    func isMatchpoint(scoreA: Int, scoreB: Int){
-        if scoreA >= 9 && scoreB >= 9{
-            if scoreA - scoreB != 0 {
+    func isMatchpoint() {
+        if score1 >= 10 || score2 >= 10 {
+            if score1 - score2 != 0 {
                 let alert = UIAlertController(title: "Matchpoint!", message: "Tienes 4 saques", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
-            }
-            
-            if scoreA == scoreB{
-                let alert = UIAlertController(title: "Duce", message: "Que nervios", preferredStyle: UIAlertController.Style.alert)
+            } else {
+                let alert = UIAlertController(title: "Deuce", message: "Que nervios", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
-                
             }
         }
-        
     }
     
     
