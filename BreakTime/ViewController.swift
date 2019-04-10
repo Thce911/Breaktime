@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var substractonebtn: UIButton!
     @IBOutlet weak var onescrlbl: UILabel!
     @IBOutlet weak var addonebtn: UIButton!
+    @IBOutlet weak var Reset: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +41,17 @@ class ViewController: UIViewController {
         score2 += 1
         twoscrlbl.text = String(score2)
         isMatchpoint(scoreA: score1, scoreB: score2)
-        
-        
     }
     @IBAction func substracttwobtn(_ sender: Any) {
         score2 -= 1
+        twoscrlbl.text = String(score2)
+    }
+    
+    @IBAction func Reset(_ sender: Any) {
+        score1 = 0
+        score2 = 0
+        
+        onescrlbl.text = String(score1)
         twoscrlbl.text = String(score2)
     }
     
